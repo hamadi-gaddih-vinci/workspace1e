@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SD1_S4.iml" filepath="$PROJECT_DIR$/.idea/SD1_S4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_Application_Gestion_Des_Series/SD_Application_Gestion_Des_Series.iml" filepath="$PROJECT_DIR$/SD_Application_Gestion_Des_Series/SD_Application_Gestion_Des_Series.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_LRU/SD_LRU.iml" filepath="$PROJECT_DIR$/SD_LRU/SD_LRU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_ListeCaracteres/SD_ListeCaracteres.iml" filepath="$PROJECT_DIR$/SD_ListeCaracteres/SD_ListeCaracteres.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_ListeSimple/SD_ListeSimple.iml" filepath="$PROJECT_DIR$/SD_ListeSimple/SD_ListeSimple.iml" />
+    </modules>
+  </component>
+</project>

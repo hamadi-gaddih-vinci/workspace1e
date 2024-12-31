@@ -1,0 +1,32 @@
+1)
+SELECT p.code_piece, p.descriptif, stock-seuil_de_recommande AS quantite_necessaire
+FROM pieces p
+WHERE p.materiau = "Bois"
+AND p.stock < seuil_recommander
+ORDER BY 'quantite_necessaire' DESC , p.code_piece ASC
+
+2)
+SELECT m.code_meuble, m.date_creation, c.nom, c.prenom
+FROM meubles m, clients c
+WHERE c.id_client = m.id_client
+	AND m.code_meuble IN (SELECT c1.code_meuble
+				FROM composantes_meuble c1, 
+						compsantes_meuble c2, piece p
+				WHERE c1.code_piece = c2.code_piece 
+				AND c1.code_meuble = c2.code_meuble
+				AND c1.code_piece = p.code_piece
+				AND p.materiau = "Bois")
+
+3)
+SELECT DISTINCT c.id_client, c.prenom, c.nom, COUNT(m.*), SUM(m1.prix), COUNT(DISTINCT m1.vendeur)
+FROM clients c, meubles m1
+WHERE c.id_clients = m.id_clients
+GROUP BY c.id_client, c.prenom, c.nom
+
+4)
+SELECT DISTINCT p.code_piece, p.descriptif, p.materiau, c.quantite
+FROM pieces p, composantes_meuble c
+WHERE p.code_piece = c.code_piece
+AND c.code_meuble IN (SELECT m.code_meuble
+			FROM meubles m
+			WHERE m.code_meuble = "GD015")

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algo/Algo_For/Algo_For.iml" filepath="$PROJECT_DIR$/Algo/Algo_For/Algo_For.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Blocus.iml" filepath="$PROJECT_DIR$/.idea/Blocus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Apoo/Fiche5/Fiche5.iml" filepath="$PROJECT_DIR$/Apoo/Fiche5/Fiche5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Apoo/Fiche6/Fiche6.iml" filepath="$PROJECT_DIR$/Apoo/Fiche6/Fiche6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Apoo/Fiche_4/Fiche_4.iml" filepath="$PROJECT_DIR$/Apoo/Fiche_4/Fiche_4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algo/While/While.iml" filepath="$PROJECT_DIR$/Algo/While/While.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,22 @@
+﻿CREATE schema bd1;
+-- Une base de donneés est composée de schémas, et les tables se trouvent dans un schéma.
+-- Dans cet exercice, les tables se trouvent dans le schéma "bd1".
+-- Ce concept n'est pas important pour le cours de BD1. Vous en apprendrez plus dans le cours de BD2.
+
+-- création de la table
+CREATE TABLE bd1.albums
+(isbn 			CHAR(13) PRIMARY KEY,
+  titre 		VARCHAR(50) NOT NULL,
+  serie			VARCHAR(30),
+  scenariste 	VARCHAR(20),
+  dessinateur 	VARCHAR(20),
+  coloriste 	VARCHAR(20),
+  editeur 		VARCHAR(20) NOT NULL,
+  pays_edition 	CHAR(2),
+  date_edition  DATE,
+  prix 			DOUBLE PRECISION NOT NULL
+  );
+  
+
+
+ 

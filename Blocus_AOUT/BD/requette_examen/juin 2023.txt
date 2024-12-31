@@ -1,0 +1,47 @@
+1)
+SELECT v.titre, v.reference
+FROM vetements v
+WHERE v.coloris = 'bleu'
+ AND v.prix = (SELECT MAX(v2.prix)
+		FROM vetements v2
+		WHERE v2.coloris ='bleu')
+2)
+SELECT v.reference, v.titre
+FROM vetements v
+WHERE v.reference NOT IN (SELECT lc.vetement
+			  FROM lignes_commandes lc)
+3)
+SELECT v.reference, v.titre, COUNT(s.taille)
+FROM vetements v, stocks s
+WHERE v.reference = s.reference
+ AND (v.matiere = 'CO' OR v.matiere = 'SY')
+ AND s.quantite_stock > 0
+GROUP BY v.reference, v.titre
+HAVING COUNT(s.taille) >= 2
+
+4)
+SELECT v.reference, v.titre
+FROM vetements v
+WHERE v.reference IN(SELECT s1.reference
+		     FROM stocks s1, stocks s2, tailles t1, taille t2
+		     WHERE s1.reference = s2.reference
+			AND s1.taille = t1.id_taille
+			AND s2.taille = t2.taille
+			AND t1.taille != t2.taille
+			AND t1.libelle_taille = '42'
+			AND t2.libelle_taille = '44'
+			AND s1.quantite_stock > 0
+			AND s2.quantite_stock > 0)
+
+5)
+SELECT DISTINCT c.num_commande, c.nom_client
+FROM commandes c, lignes_commandes lc
+WHERE date_part('year', c.date_commande = 2022
+ AND date_part('month', c.date_commande) = 6
+ AND c.id_commande = lc.commande
+ AND lc.vetement IN (SELECT v.reference
+		     FROM vetements v
+		     WHERE v.id_categorie IN (SELECT c.id_categorie
+					      FROM categories c
+					      WHERE c.intitule_categorie = 								'pull'))
+ORDER BY c.date_commande, c.nom_client

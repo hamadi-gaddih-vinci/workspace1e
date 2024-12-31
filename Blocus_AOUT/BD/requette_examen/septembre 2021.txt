@@ -1,0 +1,34 @@
+1)
+SELECT m.code_meuble, e.nom, e.prenom, m.prix, SUM(c.prix_unitaire) AS prix_total_piece
+FROM meubles m, employes e, composantes_meuble c, vendeurs v
+WHERE c.code_meuble = m.code_meuble
+  AND m.vendeur = v.code_employe
+  AND v.code_employe = e.code_employe
+  AND 'prix_total_piece' != m.prix
+GROUP BY m.code_meuble, e.nom, e.prenom, m.prix
+
+2)
+SELECT e.code_employe, e.nom, e.prenom
+FROM employes e, vendeurs v, ouvriers o
+WHERE (e.code_employe != v.code_employe) 
+  AND (o.code_employé != e.code_employe)
+
+3)
+SELECT m.code_meuble, m.date_creation, c.nom, c.prenom
+FROM meubles m, clients c, composantes_meuble co, pieces p
+WHERE c.id_client = m.id_client
+  AND m.code_meuble = co.code_meuble
+  AND co.code_piece = p.code_piece
+  AND p.materiau = 'Melamine'
+ORDER BY m.date_creation DESC, m.code_meuble ASC
+
+4)
+SELECT DISTINCT c1.nom, c1.prenom, c1.date_de_naissance,c1.adresse, SUM(c1.*) AS nombre_de_creation
+FROM clients c1, clients c2
+WHERE c1.id_client != c2.id_clients
+AND c1.nom = c2.nom
+AND c1.prenom = c2.prenom
+AND c1.date_de_naissance = c2.date_de_naissance
+AND c1.adresse = c2.adresse
+GROUP BY c1.nom, c1.prenom, c1.date_de_naissance, c1.adresse
+ORDER BY 'nombre_de_creation' DESC

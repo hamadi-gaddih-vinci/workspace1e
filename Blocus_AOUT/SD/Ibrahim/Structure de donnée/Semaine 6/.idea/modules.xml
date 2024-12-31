@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Semaine 6.iml" filepath="$PROJECT_DIR$/.idea/Semaine 6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Semaine 6 ensemble/Semaine 6 ensemble.iml" filepath="$PROJECT_DIR$/Semaine 6 ensemble/Semaine 6 ensemble.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Semaine 6 ensemble_hashing/Semaine 6 ensemble_hashing.iml" filepath="$PROJECT_DIR$/Semaine 6 ensemble_hashing/Semaine 6 ensemble_hashing.iml" />
+    </modules>
+  </component>
+</project>

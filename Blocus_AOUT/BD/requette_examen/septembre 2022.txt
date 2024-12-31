@@ -1,0 +1,47 @@
+1)
+SELECT a.id_achat, a.type_paiement, p.date_debut, p.date_fin, m.nom, m.prenom
+FROM achats a, periodes p, membres m
+WHERE m.numero_membre = a.membre 
+ AND a.periode = p.id_periode
+ AND a.date_paiement IS NULL
+ AND a.type_paiement != 'V'
+ORDER BY a.type_paiement, p.date_debut DESC
+
+2)
+SELECT p.id_periode, p.date_debut, p.date_fin, COUNT(a.id_achat) AS nb_achat, COUNT(m.numero_membre) AS nb_membre
+FROM periodes p, achats a, membres m
+WHERE m.numero_membre = a.membre
+ AND a.periode = p.id_periode
+GROUP BY p.id_periode, p.date_debut, p.date_fin
+HAVING COUNT(a.id_achat) > 0
+ORDER BY 'nb_achat' DESC
+
+3)
+SELECT l.refrence, pr.titre, l.auteur
+FROM livres l, produits pr
+WHERE l.reference = pr.reference
+ AND l.reference IN NOT (SELECT p.selection
+                         FROM periodes p
+  	 	         WHERE p.date_debut >= '01/04/2022'
+   			   AND p.date_fin <= '30/06/2022'
+
+4)
+SELECT d.reference, pr.titre
+FROM dvds d, produits pr, details_achat da
+WHERE d.reference = pr.reference
+ AND da.produit = pr.reference
+GROUP BY d.reference, pr.titre
+HAVING COUNT(da.quantite > 1)
+
+5)
+
+SELECT m.numero_membre, m.nom, m.prenom, SUM(da.prix_unitaire) AS montant_total
+FROM membres m, achats a, details_achats da
+WHERE m.numero_membre = a.membre
+ AND da.achat = a.id_achat 
+ AND (a.type_paiement = 'L' OR a.type_paiement = 'B')
+ AND a.id_achat IN (SELECT p.id_periode
+ 		    FROM periodes p
+                    WHERE p.date_debut >= '01/04/2022' AND p.date_fin <= '30/06/2022')
+GROUP BY m.numero_membre, m.nom, m.prenom
+HAVING COUNT(a.id_achat) >= 5

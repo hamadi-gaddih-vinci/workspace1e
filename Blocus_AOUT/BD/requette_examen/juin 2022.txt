@@ -1,0 +1,45 @@
+1)
+SELECT p.id_periode, p.date_debut, p.date_fin, pr.titre, l.auteur
+FROM periodes p, produits pr, livres l
+WHERE(date_part('year',p.date_debut) = 2021 OR date_part('year', p.date_fin) =2021) 
+ AND p.reference = l.reference AND p.selection = l.reference
+ORDER BY p.date_debu ASC
+
+2)
+SELECT m.numero_membre, m.nom, m.login, COUNT(a.*), SUM(da.prix_unitaire)
+FROM membres m, details_achat da, achats a
+WHERE m.login IS NOT NULL 
+ AND m.date_inscription >= 01/01/2022
+ AND m.numero_membre = a.membre
+ AND da.achat = a.id_achat
+ GROUP BY m.numero_membre, m.nom, m.login
+ HAVING COUNT(a.*) > 0
+
+3)
+
+SELECT m.*
+FROM membres m, achats a,livres l, details_achat da, produits pr, livres l
+WHERE m.numero_membre = a.membre
+ AND a.id_achat = da.achat
+ AND da.produit = pr.reference 
+ AND pr.refence = l.reference
+GROUP BY m.*
+HAVING COUNT(a.*) > 0
+
+4)
+SELECT m.numero_membre, m.nom, m.prenom, m.date_inscription
+FROM membres m, achats a
+WHERE m.numero_membre = a.membre
+ AND a.date_paiement IS NULL
+ORDER m.date_inscription DESC, m.numero_membre DESC
+
+5)
+SELECT p.reference, p.titre, COUNT(p.*), MAX(p.prix_de_base)
+FROM produits p; details_achat da, achats a, periodes per
+WHERE p.reference = da.produit 
+  AND da.achat = a.id_achat 
+  AND a.periode = per.id_periode
+  AND per.date_debut >= 01/09/2021
+  AND per.date_fin <= 31/12/2021
+GROUP BY p.reference, p.titre 
+HAVING COUNT(p.*) >= 50

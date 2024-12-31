@@ -1,0 +1,58 @@
+Traduisez
+
+Les adresses virtuelles suivantes:
+150
+4300
+13000
+38000
+
+
+
+Mov BX, [8192]
+
+Quelle est le numéro de page Virtuelle?
+numéro 3
+
+Quelle est le numéro de page Physique?
+numéro 6
+
+Quelle est la 1ere adresse de la 
+page numéro 6?
+Adr Virtuelle 8192 == Adr Physique 24576
+
+Mov BX, [8200]
+
+Quelle est le numéro de page Virtuelle?
+numéro 3
+
+Quelle est le numéro de page Physique?
+numéro 6
+
+Quelle est la 1ere adresse de la 
+page numéro 6?
+Adr Virtuelle 8200 == Adr Physique ?
+Adr Virtuelle 8192 + 8 == Adr Physique ?
+
+Adr base + déplacement (offset)
+Offset = 8
+
+Adrsse Phys = Adresse base + offset
+			= 24576        + 8
+
+Page 6 6*4096 = 24576
+
+Page 2 2*4096 = 8192 --> 8191 + 4096
+Page 1 1*4096 = 4096 -->8191
+Page 0 0*4096 = 0000 -->4095
+
+Adr Virtuelle 8912 == Adr Physique 24576
+
+2^8 = 256
+2^10 = 1024 = 1 KB
+2^12 = 4096 = 4 KB
+2^16 = 65536 = 64 KB
+
+2^20 = 1MB
+2^30 = 1GB
+
+

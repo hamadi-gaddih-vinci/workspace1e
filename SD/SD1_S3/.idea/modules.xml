@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SD1_S3.iml" filepath="$PROJECT_DIR$/SD1_S3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_Bal/SD_Bal.iml" filepath="$PROJECT_DIR$/SD_Bal/SD_Bal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_Deque/SD_Deque.iml" filepath="$PROJECT_DIR$/SD_Deque/SD_Deque.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_Drapeau/SD_Drapeau.iml" filepath="$PROJECT_DIR$/SD_Drapeau/SD_Drapeau.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_File/SD_File.iml" filepath="$PROJECT_DIR$/SD_File/SD_File.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_Patrouille/SD_Patrouille.iml" filepath="$PROJECT_DIR$/SD_Patrouille/SD_Patrouille.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SD_Pile/SD_Pile.iml" filepath="$PROJECT_DIR$/SD_Pile/SD_Pile.iml" />
+    </modules>
+  </component>
+</project>
